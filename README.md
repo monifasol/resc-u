@@ -97,8 +97,8 @@ User model
 
 ## Developers
 
-[Nico Mellon](https://github.com/nicomellon)
-[Carlos Fung](https://github.com/BcnCarlos)
+[Nico Mellon](https://github.com/nicomellon)  
+[Carlos Fung](https://github.com/BcnCarlos)  
 [Monica Saiz](https://github.com/monifasol)
 
 
