@@ -1,0 +1,87 @@
+
+<section class="animal">
+
+    <div class="animal-main-picture">
+
+      {{#if animal.imageUrl.[0].path }}
+        <img src="{{animal.imageUrl.[0].path}}" alt="{{animal.name}}"/>
+      {{else}}
+        <img src="../../images/default-avatar-dog.png" alt="default avatar dog" class="default-avatar-dog"/>
+      {{/if}}
+      <p class="name-animal"> {{animal.name}}</p>
+      
+      {{#if isAdopter}}
+      <svg id="{{animal.id}}" 
+          data-current-page="animal-page"
+          class="heart-icon {{#ifIn animal.id @root.currentUser.favorites }} fav {{else}} notfav {{/ifIn}}" 
+          width="42" height="42" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.938 23c-1.802-2.11-4.205-4.07-7.209-5.88C.796 13.548-.48 6.268 2.674 3.1 5.978-.215 9.733.84 13.938 6.268 17.543.538 21.298-.517 25.202 3.1c2.66 2.464 3.154 9.045-4.055 14.02A59.68 59.68 0 0 0 13.938 23Z" stroke="#000" fill="none" fill-rule="evenodd" stroke-linejoin="round"/>
+      </svg>
+      {{/if}}
+    </div>
+
+    <div class="big-white-wrapper">
+
+      <div class="animal-details-top">
+        <div class="animal-details">
+          <p> I'm a {{animal.type}}, {{animal.breed}}</p>
+          <p> I'm a {{animal.size}} {{animal.sex}}</p>
+          <p> {{animal.age}} years</p>
+          <p> I'm {{animal.status}}</p>
+          <p> My color is {{animal.color}}</p>
+
+          <p> {{#if animal.kidfriendly}}
+                I'm kids friendly
+              {{else}} 
+                I'm sadly not kids friendly  
+              {{/if}}
+          </p>
+
+          <p> Date of Entry: {{formatDate animal.dateofentry }} </p>
+
+          <p class="animal-description"> {{animal.description}}</p>
+        </div>
+
+        <div class="animal-pictures">
+          
+          <!-- First one we show is the first image, so we make it 'disable' in css -->
+
+          {{#each animal.imageUrl}}
+
+            <img class="pic-animal-small {{#ifEquals path @root.animal.imageUrl.[0].path }} disabled {{/ifEquals}}" 
+                  id="{{@root.animal.id}}" 
+                  src="{{path}}" />
+
+          {{/each}}
+
+          <div id="show-picture">
+            <img class="pic-animal-big" src="{{animal.imageUrl.[0].path}}"/>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="shelter-details">
+          <p> 
+            <span class="bold">Shelter:</span> 
+            {{#if animal.shelter.name}}
+              {{animal.shelter.name}}
+            {{else}}
+              {{animal.shelter.username}}
+            {{/if}}
+          </p>
+      </div>
+
+      <div class="group-btn">
+          {{#if isMyShelter}}
+            <a href="/animals/edit/{{animal.id}}" class="btn">Edit info</a>
+            <a href="/animals/delete/{{animal.id}}" class="btn">Delete</a>
+          {{else}}
+            <a href="#" class="btn secondary">Adoption details</a>
+            <a href="/animals" class="btn">See more animals</a>      
+          {{/if}}
+      </div>
+
+    </div>
+  
+</section>

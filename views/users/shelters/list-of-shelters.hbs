@@ -1,0 +1,11 @@
+<h1>List of shelters</h1>
+
+<div class="shelter-list">
+  {{#each shelters}}
+    <div class="white-box shelter">
+      <h3>{{username}}</h3>
+      <p>Contact: {{email}}</p>
+      <a href="/users/Shelter/{{username}}" class="btn">See shelter page</a>
+    </div>
+  {{/each}}
+</div>

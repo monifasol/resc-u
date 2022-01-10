@@ -1,0 +1,103 @@
+<section class="section_new_animal">
+
+  <h1>Add an Aminal to Resc-U</h1>
+
+  <form
+    class="form white-box"
+    action="/animals/new"
+    method="post"
+    enctype="multipart/form-data"
+  >
+
+    <div class="fields">
+      <label>Name:</label>
+      <input type="text" name="name" />
+    </div>
+
+    <div class="fields">
+      <label>Description:</label>
+      <textarea name="description" cols="30" rows="6"></textarea>
+    </div>
+
+    <div class="fields">
+      <label>Type:</label>
+      <select name="type" required>
+        <option selected disabled>- choose type of animal -</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="turtle">Turtle</option>
+        <option value="fish">Fish</option>
+        <option value="exotic">Exotic</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="fields">
+      <label for="sex">Sex: </label>
+      <select id="sex" name="sex">
+        <option value="male"> Male </option>
+        <option value="female"> Female </option>
+      </select>
+    </div>
+
+    <div class="fields">
+      <label for="size">Size in Kg: </label>
+      <select id="size" name="size">
+        <option value="small"> Small </option>
+        <option value="medium"> Medium </option>
+        <option value="large"> Large </option>
+      </select>
+    </div>
+
+    <div class="fields">
+      <label>Age:</label>
+      <input type="text" name="age" />
+    </div>
+
+    <div class="fields">
+      <label for="status">Status: </label>
+      <select id="status" name="status">
+        <option value="awaiting adoption"> Awaiting adoption </option>
+        <option value="adopted"> Adopted </option>
+      </select>
+    </div>
+
+    <div class="fields">
+      <label>Color:</label>
+      <input type="text" name="color" />
+    </div>
+
+    <div class="fields">
+      <label>Breed:</label>
+      <input type="text" name="breed" />
+    </div>
+
+    <div class="fields">
+      <label for="dateofentry">Date of entry: </label>
+      <input
+        type="date"
+        id="dateofentry"
+        name="dateofentry"
+        value="2021-11-26"
+        min="2021-01-01"
+        max="2021-12-31"
+      />
+    </div>
+
+    <div class="fields">
+      <label for="kidfriendly">Kids friendly: </label>
+      <select id="kidfriendly" name="kidfriendly">
+        <option value="true"> Yes </option>
+        <option value="false"> No! </option>
+      </select>
+    </div>
+
+    <div class="fields">
+      <label>Images:</label>
+      <input type="file" name="animal-image[]" multiple />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+
+</section>

@@ -1,0 +1,34 @@
+<section class="section_edit_profile shelter">
+
+  <h1>Edit profile shelter</h1>
+
+  <form class="form edit-profile-shelter" action="/users/{{user.usertype}}/{{user.username}}/profile-edit" method="POST">
+       <div class="fields">
+          <label for="name">Username: </label>
+          <p>{{ user.username }}</p>
+      </div>
+
+      <div class="fields">
+          <label for="name">Email: </label>
+          <p>{{ user.email }}</p>
+      </div>
+
+      <div class="fields">
+        <label for="name">Name: </label>
+        <input value="{{user.name}}" type="text" name="name" required placeholder="choose a name"/>
+      </div>
+
+      <div class="fields">
+        <label for="address">Address: </label>
+        <input value="{{user.address}}" type="text" name="address" required placeholder="type your shelters' address"/>
+      </div>
+
+      <div class="fields">
+        <label for="name">Contact: </label>
+        <input value="{{user.contact_phone}}" type="text" name="contact_phone" required placeholder="choose a phone number"/>
+      </div>
+      
+      <button class="btn" type="submit">Save changes</button>
+  </form>
+
+</section>

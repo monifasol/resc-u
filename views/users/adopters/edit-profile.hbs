@@ -1,0 +1,63 @@
+<section class="section_edit_profile adopter">
+
+  <h1>Edit profile adopter</h1>
+
+  <form class="form edit-profile-adopter white-box" action="/users/{{user.usertype}}/{{user.username}}/profile-edit" method="POST" enctype="multipart/form-data">
+
+      <div class="fields">
+          <label for="name">Username: </label>
+          <p>{{ user.username }}</p>
+      </div>
+
+      <div class="fields">
+          <label for="name">Email: </label>
+          <p>{{ user.email }}</p>
+      </div>
+
+      <div class="fields">
+        <label for="fullname">Fullname: </label>
+        <input type="text" value="{{user.fullname}}" name="fullname" placeholder="enter fullname" required/>
+      </div>
+      
+      <div class="fields">
+        <label>Do you have children? </label>
+        <input type="radio" id="no" name="children" value="0" {{#if user.children}} {{else}} checked{{/if}}> No
+        <input type="radio" id="yes" name="children" value="1" {{#if user.children}} checked {{/if}}> Yes
+      </div>
+
+    <div class="fields">    
+        <label for="animalPreference">Animal of preference:</label>
+        <select name="animalPreference" placeholder="choose an option" required>
+            <option disabled>- tell us which animal you prefer -</option>
+            <option value="dog" {{#ifEquals "dog" @root.user.animalPreference }} selected {{/ifEquals}}>Dog</option>
+            <option value="cat" {{#ifEquals "cat" @root.user.animalPreference }} selected {{/ifEquals}}>Cat</option>
+            <option value="turtle" {{#ifEquals "turtle" @root.user.animalPreference }} selected {{/ifEquals}}>Turtle</option>
+            <option value="fish" {{#ifEquals "fish" @root.user.animalPreference }} selected {{/ifEquals}}>Fish</option>
+        </select>
+    </div>
+
+    <div class="fields">    
+        <label for="housingSize">Housing size:</label>
+        <select name="housingSize" placeholder="choose an option" required>
+            <option disabled>- how big is your living place? -</option>
+            <option value="small appartment" {{#ifEquals "small appartment" @root.user.housingSize }} selected {{/ifEquals}}>Small appartment</option>
+            <option value="big appartment" {{#ifEquals "big appartment" @root.user.housingSize }} selected {{/ifEquals}}>Big appartment</option>
+            <option value="house" {{#ifEquals "house" @root.user.housingSize }} selected {{/ifEquals}}>House</option>
+        </select>
+    </div>
+
+    <div class="fields">
+      <label>Image:</label>
+
+      {{#if user.imageUrl }}
+        <img class="user-avatar-already-filled" src="{{user.imageUrl}}" />
+      {{/if}}
+
+      <input type="file" name="imageUrl"/>
+
+    </div>
+
+    <button class="btn" type="submit">Save changes</button>
+  </form>
+
+</section>

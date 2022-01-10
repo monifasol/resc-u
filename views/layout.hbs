@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <link rel='icon' href='../../../../images/favicon.png' />
+    <link rel='stylesheet' href='../../../../stylesheets/styles.css' />
+
+    <meta property="og:url" content="https://resc-u.herokuapp.com/">
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://resc-u.herokuapp.com/images/ogimage.png"/>
+
+  </head>
+  
+  <body>
+
+    {{> header }}
+
+    {{> flash }}
+
+    <main>
+      {{{body}}}
+    </main>
+  
+    <footer>
+      Resc-u
+    </footer>
+
+    <script type="text/javascript" src="../../../../javascript/animations.js"></script>
+
+  </body>
+  
+</html>

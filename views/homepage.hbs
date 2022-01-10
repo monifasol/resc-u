@@ -1,0 +1,26 @@
+<section class="homepage">
+
+    <div class="wrapper-boxes-homepage">
+    <form class="form login-form white-box" action="/auth/login" method="POST">
+
+        <div class="fields">
+            <label for="email">Email: </label>
+            <input value="{{email}}" type="text" name="email" required placeholder="enter your email" />
+        </div>
+
+        <div class="fields">
+            <label for="password">Password:</label>
+            <input type="password" name="password" required placeholder="enter your password"/>
+        </div>
+
+        <button type="submit" class="btn">Log in</button>
+    </form>
+
+    <div class="signup_now white-box">
+        <p>Aren't you a future adopter yet? </p>
+        <p>Sign up now!</p>
+        <a href="/auth/signup" class="btn secondary">Sign up</a>
+    </div>
+    </div>
+
+</section>

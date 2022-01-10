@@ -1,0 +1,11 @@
+<h1>Delete user</h1>
+
+<h3>{{user.username}}, are you sure you want to delete your account?</h3>
+<form
+  action="/users/{{user.usertype}}/{{user.username}}/delete-user"
+  method="post"
+>
+  <button type="submit">Delete account</button>
+</form>
+
+<a href="//users/{{user.usertype}}/{{user.username}}/profile-edit">Back</a>

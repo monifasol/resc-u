@@ -1,0 +1,81 @@
+
+<h1>My Profile </h1>
+
+<section class="section_profile">
+
+    <div class="profile-preferences ">
+        <p class="title-box">My preferences</p>
+
+        <div class="white-box preferences">
+            
+            <p class="pref">
+                <span>Username: </span>
+                {{ user.username }}
+            </p>
+
+            <p class="pref">
+                <span>Fullname: </span>
+                {{user.fullname}} 
+            </p>
+
+            <p class="pref">
+                <span>Living with kids? </span>
+                {{#if user.children}}
+                    Yes
+                {{else}}
+                    No
+                {{/if}}
+            </p>
+
+            <p class="pref">
+                <span>Animal Preference: </span>
+                {{user.animalPreference}}
+            </p>
+
+            <p class="pref">
+                <span>Size living place: </span>
+                {{user.housingSize}}
+            </p>
+
+        </div>
+
+        {{#if canEdit}}
+            <div class="group-btn">
+                <a href="/users/{{user.usertype}}/{{user.username}}/profile-edit" class="btn secondary">Edit profile</a>
+                <a href="/users/{{user.usertype}}/{{user.username}}/delete-user" class="btn">Delete User</a>      
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="animals-favorite">
+
+        <p class="title-box">My favorite animals</p>
+
+        <div class="animals-grid">
+
+            {{#each user.favorites }}
+                <div class="animal-in-list">
+                    <a href="/animals/{{this._id}}">
+
+                        <div class="main-pic-wrapper">
+                            <img src="{{imageUrl.0.path}}" alt="animal picture" />
+                        </div>
+
+                        <div class="animal-info">
+                            <p> <span class="animal-name">{{name}}</span>, {{age}} years</p>
+                            <p>I'm {{status}}</p>
+                        </div>
+                    </a>
+                </div>
+            {{else}}
+                <div class="empty-list">
+                    <p>You are no favorite animals yet!</p>
+                    <p>Go and see animals to adopt:</p>
+                    <a href="/animals" class="btn">See animals</a>
+                </div>
+
+            {{/each}}
+        </div>
+    </div>
+
+</section>

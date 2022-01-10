@@ -1,0 +1,108 @@
+
+<section class="section_edit_profile adopter">
+
+  <h1>Edit {{animal.name}}'s details</h1>
+
+  <form class="form edit-animal white-box" action="/animals/edit/{{animal._id}}" method="POST" enctype="multipart/form-data">
+
+      <div class="fields">
+          <label>Name:</label>
+          <input type="text" name="name" value="{{animal.name}}" placeholder="- enter the animal's name -"/>
+      </div>
+
+      <div class="fields">
+          <label>Description:</label>
+          <textarea name="description" cols="30" rows="6" value="{{animal.description}}" placeholder="- a short description of the animal -">
+            {{animal.description}}
+          </textarea>
+      </div>
+
+      <div class="fields">
+        <label>Type:</label>
+        <select name="type" required>
+          <option selected disabled>- which type of animal -</option>
+          <option value="dog" {{#ifEquals "dog" @root.animal.type }} selected {{/ifEquals}}>Dog</option>
+          <option value="cat" {{#ifEquals "cat" @root.animal.type }} selected {{/ifEquals}}>Cat</option>
+          <option value="turtle" {{#ifEquals "turtle" @root.animal.type }} selected {{/ifEquals}}>Turtle</option>
+          <option value="fish" {{#ifEquals "fish" @root.animal.type }} selected {{/ifEquals}}>Fish</option>
+          <option value="exotic" {{#ifEquals "exotic" @root.animal.type }} selected {{/ifEquals}}>Exotic</option>
+          <option value="other" {{#ifEquals "other" @root.animal.type }} selected {{/ifEquals}}>Other</option>
+        </select>
+      </div>
+
+
+      <div class="fields">
+        <label for="sex">Sex: </label>
+        <select id="sex" name="sex" value="{{animal.sex}}">
+          <option value="male" {{#ifEquals "male" @root.animal.sex }} selected {{/ifEquals}}> Male </option>
+          <option value="female" {{#ifEquals "female" @root.animal.sex }} selected {{/ifEquals}}> Female </option>
+        </select>
+      </div>
+
+      <div class="fields">
+        <label for="size">Size: </label>
+        <select id="size" name="size" value="{{animal.size}}">
+          <option value="small" {{#ifEquals "small" @root.animal.size }} selected {{/ifEquals}}> Small </option>
+          <option value="medium" {{#ifEquals "medium" @root.animal.size }} selected {{/ifEquals}}> Medium </option>
+          <option value="large" {{#ifEquals "large" @root.animal.size }} selected {{/ifEquals}}> Large </option>
+        </select>
+      </div>
+
+      <div class="fields">
+          <label>Age in years:</label>
+          <input type="text" name="age" value="{{animal.age}}" />
+      </div>
+
+      <div class="fields">
+        <label for="status">Status: </label>
+        <select id="status" name="status" value="{{animal.status}}">
+          <option value="awaiting adoption" {{#ifEquals "awaiting adoption" @root.animal.status }} selected {{/ifEquals}}> Awaiting adoption </option>
+          <option value="adopted" {{#ifEquals "adopted" @root.animal.status }} selected {{/ifEquals}}> Adopted </option>
+        </select>
+      </div>
+
+      <div class="fields">
+        <label>Color:</label>
+          <input type="text" name="color" value="{{animal.color}}" />
+      </div>
+
+      <div class="fields">
+        <label>Breed:</label>
+          <input type="text" name="breed" value="{{animal.breed}}" />
+      </div>
+
+      <div class="fields">
+        <label for="dateofentry">Date of entry: </label>
+        <input type="date" id="dateofentry" name="dateofentry" value="{{animal.dateofentry}}" min="01/01/2000" max="" />
+      </div>
+
+      <div class="fields">
+        <label>Am I kids friendly? </label>
+        <input type="radio" id="yes" name="kidfriendly" value="1" {{#if animal.kidfriendly}} checked {{/if}}> Yes
+        <input type="radio" id="no" name="kidfriendly" value="0" {{#if animal.kidfriendly}} {{else}} checked{{/if}}> Sadly, no
+      </div>
+
+
+      <div class="fields">
+        <label>Images:</label>
+
+        {{#if animal.imageUrl }}
+          {{#each animal.imageUrl}}
+            <img class="user-avatar-already-filled" src="{{path}}" />
+          {{/each}}
+        {{/if}}
+        
+        <input type="file" name="animal-image[]" multiple />
+
+      </div>
+
+      <button type="Submit" class="btn">Save changes</button>
+
+      
+  </form>
+
+</section>
+
+
+
+

@@ -1,0 +1,45 @@
+{
+  "name": "resc-u",
+  "engines": {
+    "node": "16",
+    "npm": "8"
+  },
+  "version": "1.0.0",
+  "description": "Adopt an animal. Rescue yourself.",
+  "scripts": {
+    "start": "node ./server.js",
+    "dev": "nodemon --ext js,hbs,css,html server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resc-u/resc-u.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/resc-u/resc-u/issues"
+  },
+  "homepage": "https://github.com/resc-u/resc-u#readme",
+  "dependencies": {
+    "bcrypt": "^5",
+    "cloudinary": "^1",
+    "connect-mongo": "^4",
+    "cookie-parser": "^1",
+    "dotenv": "^10",
+    "express": "^4",
+    "express-flash": "^0.0.2",
+    "express-session": "^1",
+    "hbs": "^4",
+    "http-errors": "^1",
+    "mongoose": "^6",
+    "morgan": "^1",
+    "multer": "^1",
+    "multer-storage-cloudinary": "^4",
+    "sass": "^1.43.4"
+  },
+  "devDependencies": {
+    "debug": "~2.6.9",
+    "nodemon": "^2.0.15"
+  }
+}

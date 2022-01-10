@@ -1,0 +1,40 @@
+
+<section class="section_signup">
+
+  <h1>Sign up </h1>
+  <p class="subtitle"> Become a future adopter</p>
+
+  <form class="form signup white-box" action="/auth/signup" method="POST">
+
+      <div class="fields">
+        <label for="username">Username: </label>
+        <input type="text" name="username" required placeholder="choose a username"/>
+      </div>
+      
+      <div class="fields">
+        <label for="email">Email: </label>
+        <input type="text" name="email" required placeholder="choose an email"/>
+      </div>
+
+      <div class="fields">
+        <label for="password">Password:</label>
+        <input type="password" name="password" required placeholder="choose a password"/>
+      </div>
+
+      <div class="fields">
+        <label for="role">Tell us who you are:</label>
+        <select name="role" placeholder="choose an option" required>
+            <option disabled>- tell us who you are -</option>
+            <option value="adopter">Future adopter</option>
+            <option value="shelter">Shelter</option>
+        </select>
+      </div>
+    <button class="btn" type="submit">Sign up</button>
+  </form>
+
+  <div class="login_now">
+    <p>Do you have already an account?</p>
+    <a href="/" class="btn">Log in</a>
+  </div>
+
+</section>

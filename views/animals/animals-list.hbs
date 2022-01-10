@@ -1,0 +1,90 @@
+<section class="animals-list">
+
+  <h1>Our animals</h1>
+
+  <p class="show-filter btn secondary">
+    <span>Filter</span>
+    <span class=
+          "arrow-down
+          {{#each types}}
+                {{#if checked}} arrow-up {{/if}}
+           {{else}}
+              
+           {{/each}}
+          openCloseFilter"></span>
+  </p>
+
+  <form action="/animals" method="get" id="animalFilter" class="filters 
+             {{#each types}}
+                {{#if checked}} show {{/if}}
+             {{/each}} ">
+
+      {{#each types}}
+        <div class="animals-filter">
+            <input class="typeCheckbox" type="checkbox" name="type" value="{{name}}" {{#if checked}}checked{{/if}} />
+            <label>{{name}}</label>
+        </div>
+      {{/each}}
+  </form>
+
+  <div class="pagination-links">
+      <a class="{{pagination.prevPage.class}}" href="/animals{{pagination.prevPage.query}}">
+        <div class="prev-page">
+          <img src="../../images/arrow-left.png" />
+          <span>Previous</span>
+        </div>
+      </a>
+
+      <a>  {{ pagination.currentPage }} of {{ pagination.pages }} </a>
+      
+      <a class="{{pagination.nextPage.class}}" href="/animals{{pagination.nextPage.query}}">
+        <div class="next-page">
+          <span>Next</span>
+          <img src="../../images/arrow-right.png" />
+        </div>
+      </a>
+  </div>
+      
+    <div class="animals-grid">
+
+      {{#each animals}}
+
+        <div class="animal-in-list">
+
+          <a href="/animals/{{this._id}}">
+
+            <div class="main-pic-wrapper">
+              <img src="{{imageUrl.0.path}}" alt="animal picture" />
+            </div>
+          </a>
+
+          <div class="animal-info">
+            <p class="animal-info-first-row"> 
+              <span class="animal-name">{{name}},</span> 
+              {{age}} years
+
+              {{#if @root.isAdopter}}
+                <svg id="{{id}}" 
+                    data-current-page="animals-list"
+                    class="heart-icon {{#ifIn id @root.currentUser.favorites }} fav {{else}} notfav {{/ifIn}}" 
+                    width="36" height="36" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.938 23c-1.802-2.11-4.205-4.07-7.209-5.88C.796 13.548-.48 6.268 2.674 3.1 5.978-.215 9.733.84 13.938 6.268 17.543.538 21.298-.517 25.202 3.1c2.66 2.464 3.154 9.045-4.055 14.02A59.68 59.68 0 0 0 13.938 23Z" stroke="#000" fill="none" fill-rule="evenodd" stroke-linejoin="round"/>
+                </svg>
+              {{/if}}
+
+            </p>
+            <p>I'm {{status}}</p>
+
+          </div>
+        </div>
+
+      {{else}}
+
+        <p>There are no animals to adopt yet!</p>
+
+      {{/each}}
+
+      <script src="js/filterAnimals.js"></script>
+    </div>
+
+</section>

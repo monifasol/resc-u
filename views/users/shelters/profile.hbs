@@ -1,0 +1,54 @@
+<h1>Shelter {{user.name}}'s profile</h1>
+
+<section class="section_profile shelter">
+
+    <div class="profile-preferences ">
+
+        <p class="title-box">Information</p>
+
+        <div class="white-box preferences">
+
+            <p class="pref">
+                <span>Name: </span>
+                {{ user.name }}
+            </p>
+
+            <p class="pref">
+                <span>Address: </span>
+                {{user.address}} 
+            </p>
+
+            <p class="pref">
+                <span>Contact Email: </span>
+                {{user.email}}
+            </p>
+
+            <p class="pref">
+                <span>Contact Phone: </span>
+                {{user.contact_phone}}
+            </p>
+        </div>
+
+        {{#if canEdit}}
+            <div class="group-btn">
+                <a href="/users/{{user.usertype}}/{{user.username}}/profile-edit" class="btn">Edit profile</a>
+                <a href="/animals/new" class="btn secondary">Add an Animal</a>
+            </div>
+            <a href="/users/{{user.usertype}}/{{user.username}}/delete-user" class="btn">Delete User</a> 
+        {{/if}}
+    </div>
+
+    <div class="animals-shelter">
+        <div class="shelter-list-animals">
+            <p class="title-box">List of animals</p>
+            {{>shelterAnimals this=animalslist}}
+        </div>
+
+        <a href="/shelters/animals/{{user.id}}" class="btn shelter-list-animals"> All shelter's animals</a>
+
+    </div>
+
+</section>
+
+
+

@@ -1,0 +1,37 @@
+<header>
+
+    {{#if currentUser}}
+        
+        <img src="../../../images/menu.png" class="menu_icon" id="menu_icon" />
+
+        <img src="../../images/logo.png" class="logo loggedIn" />
+
+        {{>navBar}}
+
+        <div class="hello-user-wrapper">
+            <div class="logout-and-hello">
+                <h3 class="hello_user">Hello {{ currentUser.username }}!</h3>
+                <a href="/auth/logout" class="logout">Log out</a> 
+            </div>
+            {{#if currentUser.imageUrl}}
+                <a href="/users/{{currentUser.usertype}}/{{currentUser.username}}">
+                    <img class="user-avatar" src="{{currentUser.imageUrl}}">
+                </a>
+            {{/if}}
+
+            {{#ifEquals "adopter" @root.currentUser.usertype }}
+                <img class="default-avatar" src="../../../images/default-avatar.png">
+            {{/ifEquals}}
+            
+        </div>
+
+    {{else}}
+        
+        <div class="page-title">
+            <img src="../../images/logo.png" class="logo" />
+            <p>Adopt an animal. Rescue yourself.</p>
+        </div>
+
+    {{/if}}
+
+</header>
