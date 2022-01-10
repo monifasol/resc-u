@@ -2,7 +2,7 @@
 
 Adopt an animal. Rescue yourself.
 
-Find the app here: https://resc-u.herokuapp.com
+[Resc-u online](https://resc-u.herokuapp.com)
 
 ## Description
 
@@ -93,3 +93,12 @@ User model
 ### Slides
 
 [Slides Link](https://docs.google.com/presentation/d/1fugJ6BppSvdLj82JuZZsS4kVEaKlIXDRt2z-r4MiwRQ/edit?usp=sharing)
+
+
+## Developers
+
+[Nico Mellon](https://github.com/nicomellon)
+[Carlos Fung](https://github.com/BcnCarlos)
+[Monica Saiz](https://github.com/monifasol)
+
+
